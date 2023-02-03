@@ -28,8 +28,8 @@ pip install selenium
   - topicID is the websites key for a specific Topic
 
   getPageCount(path) --> Returns the amount of pages for a given URL path.
-  - path refers to search parameters within the URL
-  An example path would be: f"marketId={marketID}&topicId=(topicID)&"
+  - path refers to search parameters within the URL  
+  An example path would be: f"marketId={marketID}&topicId=(topicID)&"  
   Page count is found by: (total venues / amount per page) -1
 
   getLocation(marketID, topicID, limit) --> Returns locations_dict the with format - {Venue: Address}
