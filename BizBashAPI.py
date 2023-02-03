@@ -2,9 +2,9 @@ import re
 from bs4 import BeautifulSoup
 from selenium import webdriver as wd
 """
-    ||=============================||
-    ||      BizBash Venues API     ||
-    ||=============================||
+                        ||=============================||
+                        ||      BizBash Venues API     ||
+                        ||=============================||
     
     This API is meant to GET data from https://www.bizbash.com/venue-directory
     
@@ -124,6 +124,3 @@ def getLocation(marketID = None, topicID = None, limit = 0):
         locations_dict.update({VENUE: ADDRESS})
         
     return locations_dict
-
-
-

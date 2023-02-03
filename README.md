@@ -25,14 +25,17 @@ pip install selenium
                        
   getCategory() --> Returns topicID dict with the format - {Topic: topicID}
   - Topic refers to the topic of the venue.
-            - topicID is the websites key for a specific Topic
+  - topicID is the websites key for a specific Topic
                           
-  getLocation(path) --> Returns locations_dict the with format - {Venue: Address}
-  - path refers to search parameter for the URL
+  getLocation(marketID, topicID, limit) --> Returns locations_dict the with format - {Venue: Address}
+  - OPTIONAL: marketID
+  - OPTIONAL: topicID
+  - OPTIONAL: limit  
+  The limit changes depending on what values are given. 
+  For example, if you input no values the default limit is 50 pages.
+  Otherwise, the limit will be equal to one less of the total amount of pages.
                               
-  searchLocation(marketID, topicID) --> Returns location_dict with the format - {Venue: Address}
-  - Must use marketID and topicID, NOT Market and Topic
-  
+
 ## DISCLAIMER: 
 This API is not associated with bizbash or any entity related to it. This software was designed and purposed for educational purposes.
 
