@@ -11,11 +11,11 @@ from selenium import webdriver as wd
     Methods:
         getSiteData(url) --> Returns the source code for the given URL
         
-        getVenue() --> Returns marketID dict with format - {Market:  marketId} 
+        getMarketID() --> Returns marketID dict with format - {Market:  marketId} 
             - Market refers to the location of the venue.
             - marketID > is the websites key for a specific market
                        
-        getCategory() --> Returns topicID dict with format - {Topic: topicID}
+        getTopicID() --> Returns topicID dict with format - {Topic: topicID}
             - Topic refers to the topic of the venue.
             - topicID > is the websites key for a specific topic
         
@@ -36,7 +36,7 @@ def getSiteData(url):
     soup = BeautifulSoup(driver.page_source,"lxml")
     return soup
 
-def getVenue():
+def getMarketID():
     marketID = {}
     soup = getSiteData('http://www.bizbash.com/venue-directory')
     temp_venues = soup.find_all('a',{"href" : re.compile("marketId")})
@@ -46,7 +46,7 @@ def getVenue():
         
     return marketID
 
-def getCategory():
+def getTopicID():
     topicID = {}
     soup = getSiteData('http://www.bizbash.com/venue-directory')
     temp_categories = soup.find_all('a',{"href":re.compile("topicId")})
@@ -113,7 +113,7 @@ def getLocation(marketID = None, topicID = None, limit = 0):
         x += 1
         url = f"https://www.bizbash.com/venue-directory?{path}page={x}"
         print(f"Getting page {x} of {limit}!")
-        print(url)
+        print(f"URL: {url}")
         driver = wd.Chrome()
         driver.get(url)
         soup = BeautifulSoup(driver.page_source,"lxml")

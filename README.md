@@ -19,21 +19,26 @@ pip install selenium
 ## Usage:
   getSiteData(url) --> Returns the source code for the given URL
 
-  getVenue() --> Returns marketID dict with the format - {Market:  marketId} 
-  - Market refers to the location of the venue.
+  getMarketID() --> Returns marketID dict with the format - {Market:  marketId} 
+  - Market refers to the location of the venue
   - marketID is the websites key for a specific Market
                        
-  getCategory() --> Returns topicID dict with the format - {Topic: topicID}
-  - Topic refers to the topic of the venue.
+  getTopicID() --> Returns topicID dict with the format - {Topic: topicID}
+  - Topic refers to the topic of the venue
   - topicID is the websites key for a specific Topic
-                          
+
+  getPageCount(path) --> Returns the amount of pages for a given URL path.
+  - path refers to search parameters within the URL
+  An example path would be: f"marketId={marketID}&topicId=(topicID)&"
+  Page count is found by: (total venues / amount per page) -1
+
   getLocation(marketID, topicID, limit) --> Returns locations_dict the with format - {Venue: Address}
   - OPTIONAL: marketID
   - OPTIONAL: topicID
   - OPTIONAL: limit  
-  The limit changes depending on what values are given. 
-  For example, if you input no values the default limit is 50 pages.
-  Otherwise, the limit will be equal to one less of the total amount of pages.
+  The limit changes depending on what values are given
+  For example, if you input no values the default limit is 50 pages
+  Otherwise, the limit will be equal to one less of the total amount of pages
                               
 
 ## DISCLAIMER: 
